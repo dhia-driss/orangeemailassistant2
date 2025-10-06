@@ -3,7 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Updated color tokens to match Boosted Orange Design System */
+/* Color tokens for Tailwind and Shadcn components */
 :root {
   --background: #fff;
   --foreground: #000;
@@ -11,7 +11,6 @@
   --card-foreground: #000;
   --popover: #fff;
   --popover-foreground: #000;
-  /* Orange primary color #FF7900 */
   --primary: #ff7900;
   --primary-foreground: #fff;
   --secondary: #f6f6f6;
@@ -25,25 +24,10 @@
   --border: #ccc;
   --input: #ccc;
   --ring: #ff7900;
-  --orange: #ff7900;
-  --orange-foreground: #fff;
-  --chart-1: #ff7900;
-  --chart-2: #4bb4e6;
-  --chart-3: #50be87;
-  --chart-4: #ffb4e6;
-  --chart-5: #a885d8;
   --radius: 0.25rem;
-  --sidebar: #fff;
-  --sidebar-foreground: #000;
-  --sidebar-primary: #ff7900;
-  --sidebar-primary-foreground: #fff;
-  --sidebar-accent: #f6f6f6;
-  --sidebar-accent-foreground: #000;
-  --sidebar-border: #ccc;
-  --sidebar-ring: #ff7900;
 }
 
-/* Updated dark mode colors to match Boosted dark theme */
+/* Dark mode colors for Tailwind and Shadcn components */
 .dark {
   --background: #000;
   --foreground: #fff;
@@ -51,7 +35,6 @@
   --card-foreground: #fff;
   --popover: #1a1a1a;
   --popover-foreground: #fff;
-  /* Orange primary stays the same in dark mode */
   --primary: #ff7900;
   --primary-foreground: #fff;
   --secondary: #333;
@@ -65,76 +48,10 @@
   --border: #333;
   --input: #333;
   --ring: #ff7900;
-  --orange: #ff7900;
-  --orange-foreground: #fff;
-  --chart-1: #ff7900;
-  --chart-2: #4bb4e6;
-  --chart-3: #50be87;
-  --chart-4: #ffb4e6;
-  --chart-5: #a885d8;
-  --sidebar: #1a1a1a;
-  --sidebar-foreground: #fff;
-  --sidebar-primary: #ff7900;
-  --sidebar-primary-foreground: #fff;
-  --sidebar-accent: #333;
-  --sidebar-accent-foreground: #fff;
-  --sidebar-border: #333;
-  --sidebar-ring: #ff7900;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-orange: var(--orange);
-  --color-orange-foreground: var(--orange-foreground);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-}
-
-/* Added Boosted-specific utility classes */
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-    font-family: HelvNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
-  }
-}
-
-/* Boosted button styles override */
+/* Boosted button styles override - It's better to customize these via Boosted's variables if needed */
+/*
 .btn-primary {
   background-color: var(--primary) !important;
   border-color: var(--primary) !important;
@@ -155,6 +72,7 @@
 .btn-secondary:hover {
   background-color: #e6e6e6 !important;
 }
+*/
 
 /* Boosted card styles */
 .card {

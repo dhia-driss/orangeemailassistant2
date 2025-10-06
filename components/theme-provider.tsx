@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { createContext, useContext, useEffect, useState } from "react"
 
 type Theme = "light" | "dark"
@@ -17,24 +16,34 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light")
   const [mounted, setMounted] = useState(false)
 
+  // This function applies the theme to the document for both Boosted and Tailwind
+  const applyTheme = (themeValue: Theme) => {
+    // 1. For Tailwind/Shadcn UI (which uses the 'dark' class)
+    document.documentElement.classList.remove("light", "dark")
+    document.documentElement.classList.add(themeValue)
+    
+    // 2. For Boosted/Bootstrap (which uses the data-bs-theme attribute)
+    document.documentElement.setAttribute("data-bs-theme", themeValue)
+  }
+
   useEffect(() => {
     setMounted(true)
-    const savedTheme = localStorage.getItem("orange-theme") as Theme
-    if (savedTheme) {
-      setTheme(savedTheme)
-      document.documentElement.classList.toggle("dark", savedTheme === "dark")
-    }
+    const savedTheme = localStorage.getItem("orange-theme") as Theme | null
+    const initialTheme = savedTheme || "light"
+    setTheme(initialTheme)
+    applyTheme(initialTheme)
   }, [])
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light"
     setTheme(newTheme)
     localStorage.setItem("orange-theme", newTheme)
-    document.documentElement.classList.toggle("dark", newTheme === "dark")
+    applyTheme(newTheme)
   }
 
   if (!mounted) {
-    return <>{children}</>
+    // Avoid rendering children until the theme is mounted to prevent hydration mismatch
+    return null;
   }
 
   return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>
