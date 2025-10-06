@@ -1,0 +1,206 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Updated color tokens to match Boosted Orange Design System */
+:root {
+  --background: #fff;
+  --foreground: #000;
+  --card: #fff;
+  --card-foreground: #000;
+  --popover: #fff;
+  --popover-foreground: #000;
+  /* Orange primary color #FF7900 */
+  --primary: #ff7900;
+  --primary-foreground: #fff;
+  --secondary: #f6f6f6;
+  --secondary-foreground: #000;
+  --muted: #f6f6f6;
+  --muted-foreground: #666;
+  --accent: #f6f6f6;
+  --accent-foreground: #ff7900;
+  --destructive: #cd3c14;
+  --destructive-foreground: #fff;
+  --border: #ccc;
+  --input: #ccc;
+  --ring: #ff7900;
+  --orange: #ff7900;
+  --orange-foreground: #fff;
+  --chart-1: #ff7900;
+  --chart-2: #4bb4e6;
+  --chart-3: #50be87;
+  --chart-4: #ffb4e6;
+  --chart-5: #a885d8;
+  --radius: 0.25rem;
+  --sidebar: #fff;
+  --sidebar-foreground: #000;
+  --sidebar-primary: #ff7900;
+  --sidebar-primary-foreground: #fff;
+  --sidebar-accent: #f6f6f6;
+  --sidebar-accent-foreground: #000;
+  --sidebar-border: #ccc;
+  --sidebar-ring: #ff7900;
+}
+
+/* Updated dark mode colors to match Boosted dark theme */
+.dark {
+  --background: #000;
+  --foreground: #fff;
+  --card: #1a1a1a;
+  --card-foreground: #fff;
+  --popover: #1a1a1a;
+  --popover-foreground: #fff;
+  /* Orange primary stays the same in dark mode */
+  --primary: #ff7900;
+  --primary-foreground: #fff;
+  --secondary: #333;
+  --secondary-foreground: #fff;
+  --muted: #333;
+  --muted-foreground: #999;
+  --accent: #333;
+  --accent-foreground: #fff;
+  --destructive: #cd3c14;
+  --destructive-foreground: #fff;
+  --border: #333;
+  --input: #333;
+  --ring: #ff7900;
+  --orange: #ff7900;
+  --orange-foreground: #fff;
+  --chart-1: #ff7900;
+  --chart-2: #4bb4e6;
+  --chart-3: #50be87;
+  --chart-4: #ffb4e6;
+  --chart-5: #a885d8;
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: #fff;
+  --sidebar-primary: #ff7900;
+  --sidebar-primary-foreground: #fff;
+  --sidebar-accent: #333;
+  --sidebar-accent-foreground: #fff;
+  --sidebar-border: #333;
+  --sidebar-ring: #ff7900;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-orange: var(--orange);
+  --color-orange-foreground: var(--orange-foreground);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* Added Boosted-specific utility classes */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: HelvNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+  }
+}
+
+/* Boosted button styles override */
+.btn-primary {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+}
+
+.btn-primary:hover {
+  background-color: #e66a00 !important;
+  border-color: #e66a00 !important;
+}
+
+.btn-secondary {
+  background-color: var(--secondary) !important;
+  border-color: var(--border) !important;
+  color: var(--foreground) !important;
+}
+
+.btn-secondary:hover {
+  background-color: #e6e6e6 !important;
+}
+
+/* Boosted card styles */
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--card);
+}
+
+/* Boosted navbar styles */
+.navbar {
+  background-color: var(--background);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Boosted chat bubble styles */
+.chat-bubble-user {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: 1rem 1rem 0 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.chat-bubble-bot {
+  background-color: var(--secondary);
+  color: var(--foreground);
+  border-radius: 1rem 1rem 1rem 0;
+  padding: 0.75rem 1rem;
+}
+
+/* Email list custom slider */
+.email-list {
+  /* Hide native scrollbars */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.email-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+.email-slider {
+  pointer-events: auto;
+}
+
+.slider-thumb {
+  cursor: grab;
+}
+.slider-thumb:active {
+  cursor: grabbing;
+}
